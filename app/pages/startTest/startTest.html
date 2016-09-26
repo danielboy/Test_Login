@@ -1,0 +1,27 @@
+<ion-navbar primary *navbar>
+    <ion-title>
+        Test
+    </ion-title>
+</ion-navbar>
+
+<ion-content class="home">
+    <h3 class="timer">Pregunta: {{Questions.QuiestionNo}}</h3>
+    <h5>{{Questions.questionTitle}}</h5>
+    <p>{{Questions.Question}}</p>
+    <ion-list-header>
+        Opcion seleccionada: {{answerValue}}
+    </ion-list-header>
+
+    <ion-list radio-group [(ngModel)]="answerValue" >
+        <ion-item *ngFor="let answer of ans">
+            <ion-label>{{answer.option}}</ion-label>
+            <ion-radio value="{{answer.option}}"></ion-radio>
+        </ion-item>
+    </ion-list>
+
+    <button block (click)="next(answerValue)">Siguiente</button>
+
+</ion-content>
+<ion-toolbar position="bottom" dark class="centerAlign">
+    <ion-title>Test</ion-title>
+</ion-toolbar>
