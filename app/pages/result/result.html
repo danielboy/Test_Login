@@ -4,14 +4,6 @@
     </ion-title>
 </ion-navbar>
 <ion-content class="home">
-
-  <ion-item>
-  <h5>El porcentaje de respuestas correctas es</h5>
-      <h1 class="centerAlign">
-        {{parea1 | round:2}} %
-      </h1>
-</ion-item>
-
   <ion-card>
     <ion-card-header>
      Area 1
@@ -46,7 +38,7 @@
     </ion-card-content>
   </ion-card>
   
-  <button full (click)="goHome()">Salir</button>
+  <button full (click)="goUserPage()">Salir</button>
 
 </ion-content>
 <ion-toolbar position="bottom" dark class="centerAlign">

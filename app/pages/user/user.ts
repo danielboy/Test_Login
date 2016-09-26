@@ -29,9 +29,9 @@ export class UserPage {
         this.service.getinfo().then(data => {
             if(data.username) {
                 let alert = this.alertController.create({
-                    title: "Hello, " + data.username,
-                    subTitle: "Your email is: " + data.email,
-                    buttons: ['OK']
+                    title: "Hola, " + data.username,
+                    subTitle: "Tu Email es:  " + data.email,
+                    buttons: ['Aceptar']
                 });
                 alert.present();
             }

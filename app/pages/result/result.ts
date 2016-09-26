@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import {NavController, NavParams} from 'ionic-angular';
-import {HomePage} from '../home/home';
+import {UserPage} from '../user/user';
 import {QuizService} from '../../services/authservice';
 import {RoundOfPipe} from '../../pipe/pipe';
 
@@ -30,8 +30,8 @@ export class Result {
 
 
   }
-goHome(){
-		this.nav.push(HomePage);
+goUserPage(){
+		this.nav.push(UserPage);
 	}
 
 }

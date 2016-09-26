@@ -5,8 +5,6 @@ import {HomePage} from './pages/home/home';
 import {LoginPage} from './pages/login/login';
 import {UserPage} from './pages/user/user';
 import {SignupPage} from './pages/signup/signup';
-import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
-import {ListPage} from './pages/list/list';
 import {AuthService} from './services/authservice';
 
 
@@ -34,8 +32,6 @@ class MyApp {
       { title: 'Login', component: LoginPage},
       { title: 'User', component: UserPage},
       { title: 'Signup', component: SignupPage},
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'My First List', component: ListPage }
     ];
   }
 
