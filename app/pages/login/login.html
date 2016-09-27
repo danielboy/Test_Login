@@ -1,8 +1,9 @@
-<ion-navbar *navbar>
-  <ion-title>
-    Iniciar sesión
-  </ion-title>
-</ion-navbar>
+
+<ion-header >
+  <ion-navbar dark>
+    <ion-title>Iniciar sesión</ion-title>
+  </ion-navbar>
+</ion-header>
 
 <ion-content class="login" padding>
 	<h3>Por favor Iniciar sesión</h3>
@@ -20,6 +21,6 @@
           <ion-input [(ngModel)] = "usercreds.password" type="password"></ion-input>
       </ion-item>
   </ion-list>
-  <button (click)="login(usercreds)">Entrar</button>
-  <button (click)="signup()">Registrarse</button>
+  <button full dark (click)="login(usercreds)">Entrar</button>
+  <button full dark (click)="signup()">Registrarse</button>
 </ion-content>

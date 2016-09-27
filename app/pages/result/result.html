@@ -1,46 +1,48 @@
-<ion-navbar primary *navbar>
-    <ion-title>
-        Resultado
-    </ion-title>
-</ion-navbar>
-<ion-content class="home">
-  <ion-card>
-    <ion-card-header>
-     Area 1
-    </ion-card-header>
-    <ion-card-content>
-      <h5>El porcentaje de respuestas correctas es</h5>
-      <h1 class="centerAlign">
-        {{parea1 | round:2}} %
-      </h1>
-    </ion-card-content>
-  </ion-card>
+<ion-header >
+  <ion-navbar dark>
+    <ion-title>Resultados</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="result">
+
     <ion-card>
-    <ion-card-header>
-     Area 2
-    </ion-card-header>
-    <ion-card-content>
-      <h5>El porcentaje de respuestas correctas es</h5>
-      <h1 class="centerAlign">
-        {{parea2 | round:2}} %
-      </h1>
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-header>
-     Area 3
-    </ion-card-header>
-    <ion-card-content>
-      <h5>El porcentaje de respuestas correctas es</h5>
-      <h1 class="centerAlign">
-        {{parea3 | round:2}} %
-      </h1>
-    </ion-card-content>
-  </ion-card>
+      <ion-card-header>
+        Area 1
+      </ion-card-header>
+      <ion-card-content>
+            <h5>El porcentaje de respuestas correctas es</h5>
+          <h1 class="centerAlign">
+            {{parea1 | round:2}} %
+          </h1>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        Area 2
+      </ion-card-header>
+      <ion-card-content>
+            <h5>El porcentaje de respuestas correctas es</h5>
+          <h1 class="centerAlign">
+            {{parea2 | round:2}} %
+          </h1>
+      </ion-card-content>
+    </ion-card>    
+    <ion-card>
+      <ion-card-header>
+        Area 2
+      </ion-card-header>
+      <ion-card-content>
+            <h5>El porcentaje de respuestas correctas es</h5>
+          <h1 class="centerAlign">
+            {{parea3 | round:2}} %
+          </h1>
+      </ion-card-content>
+    </ion-card> 
+    
+
   
-  <button full (click)="goUserPage()">Salir</button>
+  
+  <button full dark (click)="goUserPage()">Salir</button>
 
 </ion-content>
-<ion-toolbar position="bottom" dark class="centerAlign">
-    <ion-title>Test</ion-title>
-</ion-toolbar>
+

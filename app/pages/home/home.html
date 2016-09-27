@@ -1,16 +1,24 @@
-<ion-navbar *navbar>
-  <ion-title>
-    Inicio
-  </ion-title>
-</ion-navbar>
-
+<ion-header >
+  <ion-navbar dark>
+    <ion-title>Inicio</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-card>
+  <img src="ea.png"/>
+  <ion-card-content>
+    <ion-card-title class="centerAlign">
+      Universidad Autonoma de Nayarit
+      </ion-card-title>
+    <p>
+Bienvenido al Test de Orientación Vocacional
+    </p>
+  </ion-card-content>
+</ion-card>
 <ion-content class="home" padding>
 	<h3>Universidad Autonoma de Nayarit</h3>
+
 	<p>
-		Bienvenido al Test de la UAN
-	</p>
-	<p>
-		<button (click)="openLogin()">Aceptar</button>
+		<button full dark (click)="openLogin()">Aceptar</button>
 	</p>
 
 </ion-content>
