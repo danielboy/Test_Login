@@ -5,7 +5,8 @@ import {HomePage} from '../home/home';
 import {StartTest} from '../startTest/startTest';
 
 @Component({
-    templateUrl: 'build/pages/user/user.html'
+    templateUrl: 'build/pages/user/user.html',
+      providers: [AuthService]
 })
 export class UserPage {
 

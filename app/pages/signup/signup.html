@@ -1,8 +1,8 @@
-<ion-navbar *navbar>
-  <ion-title>
-    Registro
-  </ion-title>
-</ion-navbar>
+<ion-header >
+  <ion-toolbar primary>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content class="signup" padding>
   <ion-list>
@@ -15,5 +15,5 @@
           <ion-input [(ngModel)] = "newcreds.password" type="password"></ion-input>
       </ion-item>
   </ion-list>
-  <button full dark (click)="register(newcreds)">Resgistrar</button>
+  <button full primary (click)="register(newcreds)">Resgistrar</button>
 </ion-content>

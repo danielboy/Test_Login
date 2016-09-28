@@ -1,16 +1,15 @@
-
 <ion-header >
-  <ion-navbar dark>
+  <ion-toolbar primary>
     <ion-title>Iniciar sesión</ion-title>
-  </ion-navbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content class="login" padding>
-	<h3>Por favor Iniciar sesión</h3>
-	<p>
-		Escriba nombre de usuario y contraseña para entrar
-	</p>
 
+
+<ion-card>
+  <img src="../../img/ea.png"/>
+  <ion-card-content>
   <ion-list>
       <ion-item>
           <ion-label floating>Nombre</ion-label>
@@ -20,7 +19,13 @@
           <ion-label floating>Contraseña</ion-label>
           <ion-input [(ngModel)] = "usercreds.password" type="password"></ion-input>
       </ion-item>
+      
   </ion-list>
-  <button full dark (click)="login(usercreds)">Entrar</button>
-  <button full dark (click)="signup()">Registrarse</button>
+
+  </ion-card-content>
+</ion-card>
+
+  <button full primary (click)="login(usercreds)">Entrar</button>
+  <button full primary (click)="signup()">Registrarse</button>
+
 </ion-content>
