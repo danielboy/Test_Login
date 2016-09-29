@@ -23,22 +23,18 @@ export class LoginPage {
         this.nav = navcontroller;
     }
     login(user) {
-        this.dusers = user;
-                 if(user == null){
-            let alert = this.alertCtrl.create({
-                title: 'Atención',
-                subTitle: 'Introduce tu Nombre y Contraseña',
-                buttons: ['Ok']
-                });
-            alert.present();
-
-            return;
-        }
         this.service.authenticate(user).then(data => {
             if(data) {
                 this.nav.setRoot(UserPage);
             }
-
+            else  {
+                let alert = this.alertCtrl.create({
+                title: 'Error',
+                subTitle: 'Selecciona Tu Respuesta',
+                buttons: ['Ok']
+                });
+            alert.present();
+            }
 
     });
 }

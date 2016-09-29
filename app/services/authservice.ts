@@ -5,6 +5,7 @@ import { Http, Response, Headers } from '@angular/http';
 export class AuthService {
     private isLoggedin: any;
     private AuthToken: any;
+     data: any ;
     constructor(private http: Http) {
         this.isLoggedin = false;
         this.AuthToken = null;
@@ -19,10 +20,11 @@ export class AuthService {
     useCredentials(userdata) {
         this.isLoggedin = !!true;
         this.AuthToken = userdata;
+       
     }
 
     loadUserCredentials() {
-        var token = JSON.parse(window.localStorage.getItem('userdata'));
+        let token = JSON.parse(window.localStorage.getItem('userdata'));
         this.useCredentials(token);
     }
 
@@ -33,19 +35,21 @@ export class AuthService {
     }
 
     authenticate(user) {
-        var creds = "name=" + user.name + "&password=" + user.password;
-        var headers = new Headers();
+        let creds = "name=" + user.name + "&password=" + user.password;
+        let headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
-     //   headers.append('Authorization', ' Basic ' + creds);
-
         return new Promise(resolve => {
             this.http.post('http://localhost:3333/authenticate',creds, {headers: headers}).subscribe(data => {
-                if(data.json()){
+                if(data.json()&& data.json().token){
                     this.storeUserCredentials({
-                        "username": user.name,
-                        "password": user.password,
+                   //     "username": user.name,
+                     //   "password": user.password,
+                        "token": data.json().token
+
                     });
+                     
                     resolve(true);
+
                 }
                 else
                     resolve(false);
@@ -53,10 +57,9 @@ export class AuthService {
         });
     }
     adduser(user) {
-        var creds = "name=" + user.name + "&password=" + user.password;
-        var headers = new Headers();
+        let creds = "name=" + user.name + "&password=" + user.password;
+        let headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
-
         return new Promise(resolve => {
             this.http.post('http://localhost:3333/adduser', creds, {headers: headers}).subscribe(data => {
                 if(data.json().success){
@@ -72,20 +75,25 @@ export class AuthService {
       return this.isLoggedin;
     }
 
-    getinfo() {
+   getinfo() {
         return new Promise(resolve => {
-            var headers = new Headers();
+            let headers = new Headers();
             this.loadUserCredentials();
-            resolve(this.AuthToken);
-            // headers.append('Authorization', 'Bearer ' + this.AuthToken);
-            // this.http.get('http://localhost:3333/getinfo', {headers: headers}).subscribe(data => {
-            //     if(data.json().success)
-            //         resolve(data.json());
-            //     else
-            //         resolve(false);
-            // });
+             headers.append('Authorization', 'Bearer ' + this.AuthToken.token);
+             this.http.get('http://localhost:3333/getinfo/', {headers: headers}).subscribe(data => {
+                this.data = data;
+                 if(data.json().decodedtoken){
+
+                     resolve(data.json().decodedtoken);
+                 }
+                 else
+                     resolve(false);
+             });
         })
     }
+
+
+
 
     logout() {
         this.destroyUserCredentials();

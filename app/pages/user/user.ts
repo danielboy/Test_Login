@@ -3,6 +3,7 @@ import {NavController, AlertController} from 'ionic-angular';
 import {AuthService} from '../../services/authservice';
 import {HomePage} from '../home/home';
 import {StartTest} from '../startTest/startTest';
+import {DatosPage} from '../Datos/Datos';
 
 @Component({
     templateUrl: 'build/pages/user/user.html',
@@ -12,6 +13,7 @@ export class UserPage {
 
     private service: any;
     private nav: NavController;
+    private 
 
     constructor(private authservice: AuthService, private navcontroller: NavController, private alertController: AlertController) {
         this.service = authservice;
@@ -27,15 +29,18 @@ export class UserPage {
     }
     
     getinfo() {
-        this.service.getinfo().then(data => {
-            if(data.username) {
+
+          this.nav.push(DatosPage);    
+        /*this.service.getinfo().then(data => {
+            if(data.name) {
+                console.log(data)
                 let alert = this.alertController.create({
-                    title: "Hola, " + data.username,
-                    subTitle: "Tu Email es:  " + data.email,
+                    title: "Hola, " + data.name,
+                    subTitle: "Tu Escuela es:  " + data.prepa,
                     buttons: ['Aceptar']
                 });
                 alert.present();
             }
-        });
+        });*/
     }
 }
