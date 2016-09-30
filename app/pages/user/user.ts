@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NavController, AlertController} from 'ionic-angular';
+import {NavController} from 'ionic-angular';
 import {AuthService} from '../../services/authservice';
 import {HomePage} from '../home/home';
 import {StartTest} from '../startTest/startTest';
@@ -13,9 +13,8 @@ export class UserPage {
 
     private service: any;
     private nav: NavController;
-    private 
 
-    constructor(private authservice: AuthService, private navcontroller: NavController, private alertController: AlertController) {
+    constructor(private authservice: AuthService, private navcontroller: NavController) {
         this.service = authservice;
         this.nav = navcontroller;
     }
@@ -28,7 +27,7 @@ export class UserPage {
         this.nav.setRoot(HomePage);
     }
     
-    getinfo() {
+    perfil() {
 
           this.nav.push(DatosPage);    
         /*this.service.getinfo().then(data => {

@@ -13,14 +13,65 @@
 
 <ion-content padding>
 
-<ion-item>
-  <ion-label>Nombre:</ion-label>
 
+ <ion-item-group>
+<ion-item>
+  <h2>Nombre:</h2>
+  <p>{{nombre}}</p>
 </ion-item>
 <ion-item>
-  <ion-label>Escuela:</ion-label>
-
+  <h2>Apellido:</h2>
+  <p>{{apellido}}</p>
 </ion-item>
+<ion-item>
+  <h2>Matricula:</h2>
+  <p>{{matricula}}</p>
+</ion-item>
+<ion-item>
+  <h2>Escuela:</h2>
+  <p>{{prepa}}</p>
+</ion-item>
+<ion-item>
+  <h2>Turno:</h2>
+  <p>{{turno}}</p>
+</ion-item>
+<ion-item>
+  <h2>Grupo:</h2>
+  <p>{{grupo}}</p>
+</ion-item>
+</ion-item-group>
 
+<ion-segment >
+    <ion-label>Resultados Test</ion-label>
+ </ion-segment>
+
+<ion-item>
+  <ion-icon name="bookmark" item-left></ion-icon>
+  C. DE LA SALUD
+  <ion-badge item-right>80%</ion-badge>
+</ion-item>
+<ion-item>
+  <ion-icon name="bookmark" item-left></ion-icon>
+  C. SOCIALES Y HUMANIDADES
+  <ion-badge item-right>66%</ion-badge>
+</ion-item>
+<ion-item>
+  <ion-icon name="bookmark" item-left></ion-icon>
+  C. ECONOMICAS ADMINISTRATIVAS
+  <ion-badge item-right>35%</ion-badge>
+</ion-item>
+<ion-item>
+  <ion-icon name="bookmark" item-left></ion-icon>
+  C. BIOLOGICO-AGROPECUARIAS Y PESQUERAS
+  <ion-badge item-right>66%</ion-badge>
+</ion-item>
+<ion-item>
+  <ion-icon name="bookmark" item-left></ion-icon>
+  C. BASICAS E INGENIERIAS
+  <ion-badge item-right>35%</ion-badge>
+</ion-item>
+<br>
+<br>
   <button full primary (click)="goUserPage()">Salir</button>
+    <button full primary (click)="consultar()">consultar</button>
 </ion-content>

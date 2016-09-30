@@ -1,23 +1,42 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import {AuthService} from '../../services/authservice';
 import {UserPage} from '../user/user';
 
-/*
-  Generated class for the DatosPage page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   templateUrl: 'build/pages/datos/datos.html',
+  providers: [AuthService]
 })
 export class DatosPage {
 
-  constructor(private nav: NavController) {
+    private service: any;
+    private nav: NavController;
+    datas: any;
+    nombre: any;
 
- 
+  constructor(private authservice: AuthService, private navcontroller: NavController) {
+
+ this.service = authservice;
+
+
+
 
   }
+
+      consultar() {
+        
+ 
+        this.service.getinfo().then(data =>
+        
+        this.datas = data,
+        console.log(this.datas)
+        )}
+      onPageLoaded() {
+        console.log('hola')
+ 
+        this.consultar()
+      }
    goUserPage(){
 		this.nav.push(UserPage);
 	}
