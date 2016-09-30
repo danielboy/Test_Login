@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import {AuthService} from '../../services/authservice';
 import {UserPage} from '../user/user';
 
@@ -11,33 +11,34 @@ import {UserPage} from '../user/user';
 export class DatosPage {
 
     private service: any;
-    private nav: NavController;
-    datas: any;
-    nombre: any;
+    datos: any;
 
-  constructor(private authservice: AuthService, private navcontroller: NavController) {
+  constructor(private authservice: AuthService, private nav: NavController, private alertCtrl: AlertController) {
+      
+      this.nav = nav;
+      this.service = authservice;
+                this.datos = {
+                    nombre: '-',
+                    matricula: '-',
+                    prepa: '_'
 
- this.service = authservice;
-
-
-
+                }
 
   }
 
-      consultar() {
-        
- 
-        this.service.getinfo().then(data =>
-        
-        this.datas = data,
-        console.log(this.datas)
-        )}
-      onPageLoaded() {
-        console.log('hola')
- 
-        this.consultar()
-      }
-   goUserPage(){
+onPageLoaded() {
+    this.service.getinfo().then(data => {
+                this.datos = {
+                    nombre: data.name +' '+ data.apellidos,
+                    matricula: data.matricula,
+                    escuela: data.prepa,
+                }
+
+        });
+ }
+
+
+goUserPage(){
 		this.nav.push(UserPage);
 	}
 
