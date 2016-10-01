@@ -12,6 +12,7 @@ export class DatosPage {
 
     private service: any;
     datos: any;
+    resul: any;
 
   constructor(private authservice: AuthService, private nav: NavController, private alertCtrl: AlertController) {
       
@@ -20,9 +21,12 @@ export class DatosPage {
                 this.datos = {
                     nombre: '-',
                     matricula: '-',
-                    prepa: '_'
-
+                    escuela: '_',
+                    turno: '_',
+                    grupo: '_',                    
                 }
+
+                
 
   }
 
@@ -31,9 +35,18 @@ onPageLoaded() {
                 this.datos = {
                     nombre: data.name +' '+ data.apellidos,
                     matricula: data.matricula,
-                    escuela: data.prepa,
+                    escuela: data.escuela,
+                    turno: data.turno,
+                    grupo: data.grupo,
+                    CS: data.CS,
+                    CSH: data.CSH,
+                    CEA: data.CEA,
+                    CBAP: data.CBAP,
+                    CBI: data.CBI, 
+                                     
                 }
-
+                console.log(this.datos.escuela)
+                console.log(this.datos)
         });
  }
 
