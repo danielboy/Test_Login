@@ -23,7 +23,13 @@ export class DatosPage {
                     matricula: '-',
                     escuela: '_',
                     turno: '_',
-                    grupo: '_',                    
+                    grupo: '_',
+                    CS: '_',
+                    CSH: '_',
+                    CEA: '_',
+                    CBAP: '_',
+                    CBI: '_',                       
+
                 }
 
                 

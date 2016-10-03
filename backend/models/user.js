@@ -10,7 +10,57 @@ var UserSchema = new Schema({
   password: {
     type: String,
     required: true
-  }
+  },
+  apellidos: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  matricula: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  escuela: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  turno: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  grupo: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  CS: {
+    type: Number,
+    unique: false,
+    required: false
+  },
+  CSH: {
+    type: Number,
+    unique: false,
+    required: false
+  },
+  CBAP: {
+    type: Number,
+    unique: false,
+    required: false
+  },
+  CEA: {
+    type: Number,
+    unique: false,
+    required: false
+  },
+  CBI: {
+    type: Number,
+    unique: false,
+    required: false
+  },
 });
 
 UserSchema.pre('save', function (next) {

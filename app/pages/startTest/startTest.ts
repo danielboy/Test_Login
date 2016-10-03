@@ -4,6 +4,7 @@ import {QuizService} from '../../services/authservice';
 import {Result} from '../result/result';
 
 
+
 @Component({
     templateUrl: 'build/pages/startTest/startTest.html',
     providers: [QuizService]

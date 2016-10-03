@@ -35,11 +35,11 @@ export class AuthService {
     }
 
     authenticate(user) {
-        let creds = "name=" + user.name + "&password=" + user.password;
+        //let item = "name=" + user.name + "&password=" + user.password;
         let headers = new Headers();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        headers.append('Content-Type', 'application/json');
         return new Promise(resolve => {
-            this.http.post('http://localhost:3333/authenticate',creds, {headers: headers}).subscribe(data => {
+            this.http.post('http://localhost:3333/authenticate',JSON.stringify(user), {headers: headers}).subscribe(data => {
                 if(data.json()&& data.json().token){
                     this.storeUserCredentials({
                    //     "username": user.name,
@@ -57,11 +57,11 @@ export class AuthService {
         });
     }
     adduser(user) {
-        let creds = "name=" + user.name + "&password=" + user.password;
+        //let creds = "name=" + user.name + "&apellidos=" + user.apellidos + "&password=" + user.password + "&matricula=" + user.matricula + "&turno=" + user.turno + "&grupo=" + user.grupo + "&CS=" + user.CS + "&CSH=" + user.CSH + "&CEA=" + user.CEA + "&CBAP=" + user.CBAP + "&CBI=" + user.CBI;
         let headers = new Headers();
-        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        headers.append('Content-Type','application/json');
         return new Promise(resolve => {
-            this.http.post('http://localhost:3333/adduser', creds, {headers: headers}).subscribe(data => {
+            this.http.post('http://localhost:3333/adduser', JSON.stringify(user), {headers: headers}).subscribe(data => {
                 if(data.json().success){
                     resolve(true);
                 } else {
@@ -92,7 +92,25 @@ export class AuthService {
         })
     }
 
+   putinfo(resul) {
+        return new Promise(resolve => {
+           // let creds = "CS=" + resul.CS + "&CSH=" + resul.CSH + "&CEA=" + resul.CEA + "&CBAP=" + resul.CBAP + "&CBI=" + resul.CBI;
+            console.log(resul)
+            let headers = new Headers();
+            this.loadUserCredentials();
+             headers.append('Authorization', 'Bearer ' + this.AuthToken.token);
+             headers.append('Content-Type','application/json');
+             this.http.put('http://localhost:3333/putinfo/',{headers: headers}).subscribe(data => {
+                this.data = data;
+                 if(data.json().decodedtoken){
 
+                     resolve(data.json().decodedtoken);
+                 }
+                 else
+                     resolve(false);
+             });
+        })
+    }
 
 
     logout() {

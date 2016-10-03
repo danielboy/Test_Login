@@ -38,7 +38,8 @@ export class LoginPage {
 
     });
 }
-    signup() {
-        this.nav.push(SignupPage);
-    }
+
+      signup() {
+      this.nav.push(SignupPage);
+  }
 }

@@ -5,7 +5,7 @@ import { Http, ConnectionBackend } from '@angular/http';
 
 @Component({
   templateUrl: 'build/pages/signup/signup.html',
-  providers: [Http, ConnectionBackend]
+  providers: [Http, ConnectionBackend, AuthService]
 })
 export class SignupPage {
     private newcreds: any;
@@ -14,7 +14,11 @@ export class SignupPage {
     constructor(private authservice: AuthService, private navcontroller: NavController, private alertController: AlertController) {
         this.newcreds = {
             name: '',
-            password: ''
+            apellidos: '',
+            password: '',
+            matricula: '',
+            turno: '',
+            grupo: ''
         }
         this.service = authservice;
         this.nav = navcontroller;
@@ -34,4 +38,6 @@ export class SignupPage {
             console.error("Failed!", error);
         });
     }
+
+    
 }
